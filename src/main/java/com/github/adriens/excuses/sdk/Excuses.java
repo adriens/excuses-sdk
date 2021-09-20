@@ -34,23 +34,25 @@ public class Excuses {
         //out.forEach(System.out::println);
         return out;
     }
-    
-    public List<String> getCategories() throws Exception{
+
+    //TODO switch to hashSet
+    public List<String> getCategories() throws Exception {
         HashSet<String> out = new HashSet<String>();
         Iterator<Excuse> catsIter = getAll().iterator();
-        while(catsIter.hasNext()){
+        while (catsIter.hasNext()) {
             out.add(catsIter.next().getCategory());
         }
         return new ArrayList<>(out);
     }
-    
-    public List<Excuse> getByCategory(String cat) throws Exception{
+
+    //TODO  inject to HashSet then filter and return
+    public List<Excuse> getByCategory(String cat) throws Exception {
         System.out.println("Get excuses for <" + cat + "> :");
         Iterator<Excuse> excIter = getAll().iterator();
         ArrayList<Excuse> out = new ArrayList<Excuse>();
-        while(excIter.hasNext()){
+        while (excIter.hasNext()) {
             Excuse ex = excIter.next();
-            if(ex.getCategory().equalsIgnoreCase(cat)){
+            if (ex.getCategory().equalsIgnoreCase(cat)) {
                 out.add(ex);
                 System.out.println(ex);
             }
