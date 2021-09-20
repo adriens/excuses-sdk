@@ -60,6 +60,10 @@ public class Excuses {
         return out;
     }
 
+    // implementer excuseNotFoundException
+    // implementer categoryNotFoundException
+    // get a totally random excuse (no matter the category)
+    // get a random excuse from a given category
     public static void main(String[] args) {
         try {
             Excuses excuses = new Excuses();
