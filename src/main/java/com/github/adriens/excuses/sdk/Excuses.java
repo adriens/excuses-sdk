@@ -61,8 +61,8 @@ public class Excuses {
     public static void main(String[] args) {
         try {
             Excuses excuses = new Excuses();
-            //excuses.getAll();
-            excuses.getByCategory("Sport");
+            //tes collègue te gonflent avec le sport ?
+            List<Excuse> exc = excuses.getByCategory("Sport");
             System.exit(0);
         } catch (Exception ex) {
             ex.printStackTrace();
