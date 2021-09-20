@@ -10,6 +10,25 @@ Excuses excuses = new Excuses();
 List<Excuse> exc = excuses.getByCategory("Sport");
 ```
 
+# Dépendance
+
+```xml
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+
+```xml
+	<dependency>
+	    <groupId>com.github.adriens</groupId>
+	    <artifactId>excuses-sdk</artifactId>
+	    <version>Tag</version>
+	</dependency>
+```
+
 
 # TODO
 
