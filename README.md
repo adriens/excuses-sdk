@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/adriens/excuses-sdk.svg)](https://jitpack.io/#adriens/excuses-sdk)
+
 # excuses-sdk
 
 Enfin un SDK pour des excuses !
