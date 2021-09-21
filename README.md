@@ -1,5 +1,13 @@
 [![](https://jitpack.io/v/adriens/excuses-sdk.svg)](https://jitpack.io/#adriens/excuses-sdk)
 
+# Usage
+
+D'abord, installer [JBang!](https://www.jbang.dev/documentation/guide/latest/installation.html), puis :
+
+```shell
+jbang run https://github.com/adriens/excuses-sdk/blob/main/nope.java -c boulot
+```
+
 # excuses-sdk
 
 Enfin un SDK pour des excuses !
