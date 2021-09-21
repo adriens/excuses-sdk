@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 /**
  *
@@ -36,9 +37,9 @@ public class Excuses {
         return out;
     }
 
-    //TODO switch to hashSet
     public List<String> getCategories() throws Exception {
-        HashSet<String> out = new HashSet<String>();
+        Set<String> out = new HashSet<String>();
+        
         Iterator<Excuse> catsIter = getAll().iterator();
         while (catsIter.hasNext()) {
             out.add(catsIter.next().getCategory());
@@ -57,6 +58,9 @@ public class Excuses {
                 out.add(ex);
                 System.out.println(ex);
             }
+        }
+        if(out.size() == 0){
+            throw new CategoryNotFoundException("Pas d'excuse pour la catégorie <" + cat + ">");
         }
         return out;
     }
@@ -86,7 +90,7 @@ public class Excuses {
             //tes collègue te gonflent avec le sport ?
             //List<Excuse> exc = excuses.getByCategory("Sport");
             //System.out.println("Random excuse : <" + excuses.pickRandomly() + ">");
-            System.out.println("Random excuse for BOULOT: <" + excuses.pickRandomly("boulot") + ">");
+            System.out.println("Random excuse for BOULOT: <" + excuses.pickRandomly("bidon") + ">");
             System.exit(0);
         } catch (Exception ex) {
             ex.printStackTrace();
