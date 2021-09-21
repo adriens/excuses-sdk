@@ -73,7 +73,16 @@ public class Excuses {
         return out;
     }
 
-    
+    public Excuse getById(int id) throws Exception{
+        Excuse out = new Excuse();
+        try{
+            out = getAll().get(id);
+        }
+        catch(IndexOutOfBoundsException ex){
+            throw new ExcuseNotFoundException("L'excuse <" + id + "> n'exite pas."); 
+        }
+        return out;
+    }
     public Excuse pickRandomly() throws Exception{
         Excuse out = new Excuse();
         Random rand = new Random();
@@ -98,7 +107,8 @@ public class Excuses {
             //tes collègue te gonflent avec le sport ?
             //List<Excuse> exc = excuses.getByCategory("Sport");
             //System.out.println("Random excuse : <" + excuses.pickRandomly() + ">");
-            System.out.println("Random excuse for BOULOT: <" + excuses.pickRandomly("boulot") + ">");
+            //System.out.println("Random excuse for BOULOT: <" + excuses.pickRandomly("boulot") + ">");
+            System.out.println("Excuse 3 : " + excuses.getById(3));
             System.exit(0);
         } catch (Exception ex) {
             ex.printStackTrace();
