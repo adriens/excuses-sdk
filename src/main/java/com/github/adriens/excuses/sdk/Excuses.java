@@ -77,7 +77,7 @@ public class Excuses {
     public Excuse getById(int id) throws Exception{
         Excuse out = new Excuse();
         try{
-            out = getAll().get(id);
+            out = getAll().get(id-1);
         }
         catch(IndexOutOfBoundsException ex){
             throw new ExcuseNotFoundException("L'excuse <" + id + "> n'exite pas."); 
