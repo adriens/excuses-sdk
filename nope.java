@@ -1,6 +1,6 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //REPOS mavencentral,jitpack
-//DEPS com.github.adriens:excuses-sdk:v0.3
+//DEPS com.github.adriens:excuses-sdk:v0.4
 //DEPS info.picocli:picocli:4.5.0
 import com.github.adriens.excuses.sdk.Excuses;
 import picocli.CommandLine;
@@ -13,8 +13,12 @@ import java.util.concurrent.Callable;
         description = "nope made with jbang")
 class nope implements Callable<Integer> {
 
-    @Parameters(index = "0", description = "The greeting to print", defaultValue = "World!")
-    private String greeting;
+    //@Parameters(index = "0", description = "La catégorie d'excuse (boulot,sport,apero)", defaultValue = "boulot")
+    @CommandLine.Option(
+            names = {"-c", "--category"},
+            description = "La catégorie d'excuse (boulot,sport,apero)",
+            required = true)
+    private String category;
 
     public static void main(String... args) {
         int exitCode = new CommandLine(new nope()).execute(args);
@@ -25,7 +29,7 @@ class nope implements Callable<Integer> {
     public Integer call() throws Exception { // your business logic goes here...
         //System.out.println("Hello " + greeting);
         Excuses excuses = new Excuses();
-        System.out.println("Random excuse : <" + excuses.pickRandomly() + ">");
+        System.out.println(excuses.pickRandomly(category));
         return 0;
     }
 }

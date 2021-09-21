@@ -40,7 +40,7 @@ public class Excuses {
                 .withType(Excuse.class)
                 .build()
                 .parse();
-        out.forEach(System.out::println);
+        //out.forEach(System.out::println);
         fileStream.close();
         return out;
     }
@@ -57,14 +57,14 @@ public class Excuses {
 
     //TODO  inject to HashSet then filter and return
     public List<Excuse> getByCategory(String cat) throws Exception {
-        System.out.println("Get excuses for <" + cat + "> :");
+        //System.out.println("Get excuses for <" + cat + "> :");
         Iterator<Excuse> excIter = getAll().iterator();
         ArrayList<Excuse> out = new ArrayList<Excuse>();
         while (excIter.hasNext()) {
             Excuse ex = excIter.next();
             if (ex.getCategory().equalsIgnoreCase(cat)) {
                 out.add(ex);
-                System.out.println(ex);
+                //System.out.println(ex);
             }
         }
         if(out.size() == 0){
