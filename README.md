@@ -9,6 +9,13 @@ jbang run https://github.com/adriens/excuses-sdk/blob/main/nope.java
 jbang run https://github.com/adriens/excuses-sdk/blob/main/nope.java -c boulot
 ```
 
+Via alias :
+
+```shell
+alias excuse='jbang run https://github.com/adriens/excuses-sdk/blob/main/nope.java'
+excuse -c boulot
+```
+
 # excuses-sdk
 
 Enfin un SDK pour des excuses !
