@@ -14,6 +14,7 @@ import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -34,7 +35,7 @@ public class Excuses {
         getClass().getResourceAsStream(DATA_FILE);
         //ClassLoader classLoader = getClass().getClassLoader();
         InputStream fileStream = getClass().getResourceAsStream(DATA_FILE);
-        Reader targetReader = new InputStreamReader(fileStream);
+        Reader targetReader = new InputStreamReader(fileStream,StandardCharsets.UTF_8);
         
         out = new CsvToBeanBuilder(targetReader)
                 .withType(Excuse.class)
