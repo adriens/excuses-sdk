@@ -13,7 +13,7 @@ import java.util.concurrent.Callable;
         description = "nope made with jbang")
 class nope implements Callable<Integer> {
 
-    //@Parameters(index = "0", description = "La catégorie d'excuse (boulot,sport,apero)", defaultValue = "boulot")
+    //TODO ajouter valeur par défaut
     @CommandLine.Option(
             names = {"-c", "--category"},
             description = "La catégorie d'excuse (boulot,sport,apero)",
@@ -27,7 +27,6 @@ class nope implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception { // your business logic goes here...
-        //System.out.println("Hello " + greeting);
         Excuses excuses = new Excuses();
         System.out.println(excuses.pickRandomly(category));
         return 0;
