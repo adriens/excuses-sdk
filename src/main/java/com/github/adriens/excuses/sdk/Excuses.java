@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -31,7 +32,7 @@ public class Excuses {
                 .withType(Excuse.class)
                 .build()
                 .parse();
-        //out.forEach(System.out::println);
+        out.forEach(System.out::println);
         return out;
     }
 
@@ -61,14 +62,22 @@ public class Excuses {
     }
 
     
+    public Excuse pickRandomly() throws Exception{
+        Excuse out = new Excuse();
+        Random rand = new Random();
+        int randomIndex = rand.nextInt(getAll().size()); 
+        //System.out.println("Random index : <" + randomIndex + ">");
+        out = getAll().get(randomIndex);
+        return out;
+    }
     
-    // get a totally random excuse (no matter the category)
     // get a random excuse from a given category
     public static void main(String[] args) {
         try {
             Excuses excuses = new Excuses();
             //tes collègue te gonflent avec le sport ?
-            List<Excuse> exc = excuses.getByCategory("Sport");
+            //List<Excuse> exc = excuses.getByCategory("Sport");
+            System.out.println("Random excuse : <" + excuses.pickRandomly() + ">");
             System.exit(0);
         } catch (Exception ex) {
             ex.printStackTrace();
