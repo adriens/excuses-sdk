@@ -5,6 +5,7 @@
 D'abord, installer [JBang!](https://www.jbang.dev/documentation/guide/latest/installation.html), puis :
 
 ```shell
+jbang run https://github.com/adriens/excuses-sdk/blob/main/nope.java
 jbang run https://github.com/adriens/excuses-sdk/blob/main/nope.java -c boulot
 ```
 
