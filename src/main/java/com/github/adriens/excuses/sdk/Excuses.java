@@ -71,13 +71,22 @@ public class Excuses {
         return out;
     }
     
-    // get a random excuse from a given category
+    public Excuse pickRandomly(String aCategory) throws Exception{
+        Excuse out = new Excuse();
+        Random rand = new Random();
+        int randomIndex = rand.nextInt(getByCategory(aCategory).size()); 
+        //System.out.println("Random index : <" + randomIndex + ">");
+        out = getByCategory(aCategory).get(randomIndex);
+        return out;
+    }
+    
     public static void main(String[] args) {
         try {
             Excuses excuses = new Excuses();
             //tes collègue te gonflent avec le sport ?
             //List<Excuse> exc = excuses.getByCategory("Sport");
-            System.out.println("Random excuse : <" + excuses.pickRandomly() + ">");
+            //System.out.println("Random excuse : <" + excuses.pickRandomly() + ">");
+            System.out.println("Random excuse for BOULOT: <" + excuses.pickRandomly("boulot") + ">");
             System.exit(0);
         } catch (Exception ex) {
             ex.printStackTrace();
