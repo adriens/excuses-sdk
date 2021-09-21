@@ -5,10 +5,15 @@
  */
 package com.github.adriens.excuses.sdk;
 
+import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBeanBuilder;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -22,18 +27,21 @@ import java.util.Set;
  */
 public class Excuses {
 
-    public static final String DATA_FILE = "excuses.csv";
+    public static final String DATA_FILE = "/excuses.csv";
 
     public List<Excuse> getAll() throws Exception {
         List<Excuse> out;
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource(DATA_FILE).getFile());
-
-        out = new CsvToBeanBuilder(new FileReader(file))
+        getClass().getResourceAsStream(DATA_FILE);
+        //ClassLoader classLoader = getClass().getClassLoader();
+        InputStream fileStream = getClass().getResourceAsStream(DATA_FILE);
+        Reader targetReader = new InputStreamReader(fileStream);
+        
+        out = new CsvToBeanBuilder(targetReader)
                 .withType(Excuse.class)
                 .build()
                 .parse();
         out.forEach(System.out::println);
+        fileStream.close();
         return out;
     }
 
@@ -90,7 +98,7 @@ public class Excuses {
             //tes collègue te gonflent avec le sport ?
             //List<Excuse> exc = excuses.getByCategory("Sport");
             //System.out.println("Random excuse : <" + excuses.pickRandomly() + ">");
-            System.out.println("Random excuse for BOULOT: <" + excuses.pickRandomly("bidon") + ">");
+            System.out.println("Random excuse for BOULOT: <" + excuses.pickRandomly("boulot") + ">");
             System.exit(0);
         } catch (Exception ex) {
             ex.printStackTrace();
