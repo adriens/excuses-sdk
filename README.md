@@ -20,8 +20,14 @@ jbang alias list
 jbang excuse -c boulot
 ```
 
-En cas de mise à jour, pour être sûr de **toujours disposer des meilleures excuses**,
-flusher le cache (et donc forcer une recompilation) :
+Pour récupérer une nouvelle version, mettre à jour le cache :
+
+```shell
+jbang --fresh run https://github.com/adriens/excuses-sdk/blob/main/nope.java -c boulot
+```
+
+
+Via alias :
 
 ```shell
 jbang cache clear
