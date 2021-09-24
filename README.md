@@ -20,11 +20,11 @@ Pour une expérience optimale depuis le votre shell qui vous permettra de trouve
 des excuses de la manière la plus **efficace et discrète** possible :
 
 ```shell
-jbang alias add --name excuse https://github.com/adriens/excuses-sdk/blob/main/nope.java
+jbang alias add --name excuses https://github.com/adriens/excuses-sdk/blob/main/nope.java
 # Check des alias
 jbang alias list
-# Appel de excuse
-jbang excuse -c boulot
+# Appel de excuses
+jbang excuses -c boulot
 ```
 
 Pour récupérer rester à jour et **toujours disposer des meilleures excuses** soumises par la communauté,
@@ -32,7 +32,7 @@ mettre à jour le cache :
 
 ```shell
 jbang cache clear
-jbang excuse -c boulot
+jbang excuses -c boulot
 ```
 
 # 😈 Pour les développeurs : `excuses-sdk`
