@@ -1,5 +1,7 @@
 [![](https://jitpack.io/v/adriens/excuses-sdk.svg)](https://jitpack.io/#adriens/excuses-sdk)
 
+# 😆 Des excuses pour nous les "informaticiens" 😆
+
 # Usage
 
 ## 👉Prérequis
