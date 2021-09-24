@@ -45,6 +45,18 @@ public class Excuses {
         fileStream.close();
         return out;
     }
+    
+    public List<Excuse> getAll(int maxLength) throws Exception {
+        List<Excuse> out = new ArrayList<>();
+        Iterator<Excuse> iter = getAll().iterator();
+        while(iter.hasNext()){
+            Excuse lExc = iter.next();
+            if(lExc.getExcuse().length() <= maxLength){
+                out.add(lExc);
+            }
+        }
+        return out;
+    }
 
     public List<String> getCategories() throws Exception {
         Set<String> out = new HashSet<String>();
@@ -74,6 +86,17 @@ public class Excuses {
         return out;
     }
 
+    public List<Excuse> getByCategory(String cat, int maxLength) throws Exception{
+        ArrayList<Excuse> out = new ArrayList<Excuse>();
+        Iterator<Excuse> iter = getByCategory(cat).iterator();
+        while(iter.hasNext()){
+            Excuse lExc = iter.next();
+            if(lExc.getExcuse().length() <= maxLength){
+                out.add(lExc);
+            }
+        }
+        return out;
+    }
     public Excuse getById(int id) throws Exception{
         Excuse out = new Excuse();
         try{
@@ -92,7 +115,18 @@ public class Excuses {
         out = getAll().get(randomIndex);
         return out;
     }
-    
+    public Excuse pickRandomly(int maxLength) throws Exception {
+        Excuse out = new Excuse();
+        Random rand = new Random();
+        List<Excuse> excList = getAll(maxLength);
+        if(excList.size() < 1){
+            return null;
+        }
+        int randomIndex = rand.nextInt(excList.size()); 
+        //System.out.println("Random index : <" + randomIndex + ">");
+        out = excList.get(randomIndex);
+        return out;
+    }
     public Excuse pickRandomly(String aCategory) throws Exception{
         Excuse out = new Excuse();
         Random rand = new Random();
@@ -101,7 +135,18 @@ public class Excuses {
         out = getByCategory(aCategory).get(randomIndex);
         return out;
     }
-    
+    public Excuse pickRandomly(String aCategory, int maxLength) throws Exception{
+        Excuse out = new Excuse();
+        Random rand = new Random();
+        List<Excuse> theList = getByCategory(aCategory, maxLength);
+        if(theList.size() < 1){
+            return null;
+        }
+        int randomIndex = rand.nextInt(theList.size()); 
+        //System.out.println("Random index : <" + randomIndex + ">");
+        out = theList.get(randomIndex);
+        return out;
+    }
     public static void main(String[] args) {
         try {
             Excuses excuses = new Excuses();
@@ -109,7 +154,10 @@ public class Excuses {
             //List<Excuse> exc = excuses.getByCategory("Sport");
             //System.out.println("Random excuse : <" + excuses.pickRandomly() + ">");
             //System.out.println("Random excuse for BOULOT: <" + excuses.pickRandomly("boulot") + ">");
-            System.out.println("Excuse 3 : " + excuses.getById(3));
+            //System.out.println("Excuse 3 : " + excuses.getById(3));
+            //System.out.println(excuses.pickRandomly(2));
+            //System.out.println(excuses.pickRandomly("boulot", 2));
+            System.out.println(excuses.getByCategory("boulot", 15));
             System.exit(0);
         } catch (Exception ex) {
             ex.printStackTrace();
