@@ -9,6 +9,13 @@ jbang run https://github.com/adriens/excuses-sdk/blob/main/nope.java
 jbang run https://github.com/adriens/excuses-sdk/blob/main/nope.java -c boulot
 ```
 
+Pour récupérer une nouvelle version, mettre à jour le cache :
+
+```shell
+jbang --fresh run https://github.com/adriens/excuses-sdk/blob/main/nope.java -c boulot
+```
+
+
 Via alias :
 
 ```shell
