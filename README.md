@@ -2,7 +2,7 @@
 
 # Usage
 
-## Prérequis
+## 👉Prérequis
 
 - Avoir [`sdkman`](https://sdkman.io/) installé
 - Installer [JBang!](https://www.jbang.dev/documentation/guide/latest/installation.html) :
@@ -12,7 +12,7 @@ sdk install jbang
 
 Voila, c'est prêt.
 
-## (J)Bang! sur les excuses !
+## 🚀(J)Bang! sur les excuses !
 
 Pour une expérience optimale depuis le votre shell qui vous permettra de trouver
 des excuses de la manière la plus **efficace et discrète** possible :
@@ -33,7 +33,7 @@ jbang cache clear
 jbang excuse -c boulot
 ```
 
-# Pour les développeurs : `excuses-sdk`
+# 😈 Pour les développeurs : `excuses-sdk`
 
 Tu veux intégrer un moteur d'excuses dans tes softs java :
 
@@ -65,7 +65,7 @@ List<Excuse> exc = excuses.getByCategory("Sport");
 ```
 
 
-# TODO
+# 📑 TODO
 
 - [x] Implement jbang scripts
 - [ ] Create REST API
