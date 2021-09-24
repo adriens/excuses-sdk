@@ -2,31 +2,37 @@
 
 # Usage
 
-D'abord, installer [JBang!](https://www.jbang.dev/documentation/guide/latest/installation.html), puis :
+## Prérequis
+
+- [JBang!](https://www.jbang.dev/documentation/guide/latest/installation.html), 
+idéalement avec [`sdkman`](https://sdkman.io/).
+
+## JBanb! geeks
+
+Pour une expérience optimale depuis le votre shell qui vous permettra de trouver
+des excuses de la manière la plus **efficace et discrète** possible :
 
 ```shell
-jbang run https://github.com/adriens/excuses-sdk/blob/main/nope.java
-jbang run https://github.com/adriens/excuses-sdk/blob/main/nope.java -c boulot
+jbang alias add --name excuse https://github.com/adriens/excuses-sdk/blob/main/nope.java
+# Check des alias
+jbang alias list
+# Appel de excuse
+jbang excuse -c boulot
 ```
 
-Via alias :
+En cas de mise à jour, pour être sûr de **toujours disposer des meilleures excuses**,
+flusher le cache (et donc forcer une recompilation) :
 
 ```shell
-alias excuse='jbang run https://github.com/adriens/excuses-sdk/blob/main/nope.java'
-excuse -c boulot
+jbang cache clear
+jbang excuse -c boulot
 ```
 
-# excuses-sdk
+# Pour les développeurs : `excuses-sdk`
 
-Enfin un SDK pour des excuses !
+Enfin un SDK pour intéger de bonnes excuses dans tes logiciels :
 
-```java
-Excuses excuses = new Excuses();
-//tes collègue te gonflent avec le sport ?
-List<Excuse> exc = excuses.getByCategory("Sport");
-```
-
-# Dépendance
+## Dépendance
 
 ```xml
 <repositories>
@@ -45,8 +51,16 @@ List<Excuse> exc = excuses.getByCategory("Sport");
 </dependency>
 ```
 
+## Code
+
+```java
+Excuses excuses = new Excuses();
+//tes collègue te gonflent avec le sport ?
+List<Excuse> exc = excuses.getByCategory("Sport");
+```
+
 
 # TODO
 
-- [ ] Implement jbang scripts
+- [x] Implement jbang scripts
 - [ ] Create REST API
