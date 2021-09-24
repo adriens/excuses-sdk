@@ -4,10 +4,15 @@
 
 ## Prérequis
 
-- [JBang!](https://www.jbang.dev/documentation/guide/latest/installation.html), 
-idéalement avec [`sdkman`](https://sdkman.io/).
+- Avoir [`sdkman`](https://sdkman.io/) installé
+- Installer [JBang!](https://www.jbang.dev/documentation/guide/latest/installation.html) :
+```shelll
+sdk install jbang
+```
 
-## JBanb! geeks
+Voila, c'est prêt.
+
+## (J)Bang! sur les excuses !
 
 Pour une expérience optimale depuis le votre shell qui vous permettra de trouver
 des excuses de la manière la plus **efficace et discrète** possible :
@@ -20,14 +25,8 @@ jbang alias list
 jbang excuse -c boulot
 ```
 
-Pour récupérer une nouvelle version, mettre à jour le cache :
-
-```shell
-jbang --fresh run https://github.com/adriens/excuses-sdk/blob/main/nope.java -c boulot
-```
-
-
-Via alias :
+Pour récupérer rester à jour et **toujours disposer des meilleures excuses** soumises par la communauté,
+mettre à jour le cache :
 
 ```shell
 jbang cache clear
@@ -36,7 +35,7 @@ jbang excuse -c boulot
 
 # Pour les développeurs : `excuses-sdk`
 
-Enfin un SDK pour intéger de bonnes excuses dans tes logiciels :
+Tu veux intégrer un moteur d'excuses dans tes softs java :
 
 ## Dépendance
 
