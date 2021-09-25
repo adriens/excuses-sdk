@@ -5,12 +5,7 @@
  */
 package com.github.adriens.excuses.sdk;
 
-import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBeanBuilder;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -63,7 +58,10 @@ public class Excuses {
         
         Iterator<Excuse> catsIter = getAll().iterator();
         while (catsIter.hasNext()) {
-            out.add(catsIter.next().getCategory());
+            String lCat = catsIter.next().getCategory();
+            if(lCat.length() > 0){
+                out.add(lCat);
+            }
         }
         return new ArrayList<>(out);
     }
@@ -139,6 +137,7 @@ public class Excuses {
         Excuse out = new Excuse();
         Random rand = new Random();
         List<Excuse> theList = getByCategory(aCategory, maxLength);
+        // on cache les "shadow excuses" que je cache dans la data LOOOOOL
         if(theList.size() < 1){
             return null;
         }
@@ -157,7 +156,8 @@ public class Excuses {
             //System.out.println("Excuse 3 : " + excuses.getById(3));
             //System.out.println(excuses.pickRandomly(2));
             //System.out.println(excuses.pickRandomly("boulot", 2));
-            System.out.println(excuses.getByCategory("boulot", 15));
+            //System.out.println(excuses.getByCategory("boulot", 15));
+            System.out.println(excuses.getCategories());
             System.exit(0);
         } catch (Exception ex) {
             ex.printStackTrace();
