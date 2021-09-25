@@ -70,4 +70,4 @@ List<Excuse> exc = excuses.getByCategory("Sport");
 # 📑 TODO
 
 - [x] Implement jbang scripts
-- [ ] Create REST API
+- [x] Create REST API : [Work In Progress](https://github.com/adriens/excuses-api)
