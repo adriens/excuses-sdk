@@ -14,8 +14,11 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -98,7 +101,8 @@ public class Excuses {
     public Excuse getById(int id) throws Exception{
         Excuse out = new Excuse();
         try{
-            out = getAll().get(id-1);
+            Map<Integer, Excuse> map = getAll().stream().collect(Collectors.toMap(Excuse::getId, Function.identity()));
+            out = map.get(id);//getAll().get(id-1);
         }
         catch(IndexOutOfBoundsException ex){
             throw new ExcuseNotFoundException("L'excuse <" + id + "> n'exite pas."); 
@@ -153,11 +157,11 @@ public class Excuses {
             //List<Excuse> exc = excuses.getByCategory("Sport");
             //System.out.println("Random excuse : <" + excuses.pickRandomly() + ">");
             //System.out.println("Random excuse for BOULOT: <" + excuses.pickRandomly("boulot") + ">");
-            //System.out.println("Excuse 3 : " + excuses.getById(3));
+            //System.out.println("Excuse 666 : " + excuses.getById(666));
             //System.out.println(excuses.pickRandomly(2));
             //System.out.println(excuses.pickRandomly("boulot", 2));
             //System.out.println(excuses.getByCategory("boulot", 15));
-            System.out.println(excuses.getCategories());
+            //System.out.println(excuses.getCategories());
             System.exit(0);
         } catch (Exception ex) {
             ex.printStackTrace();
