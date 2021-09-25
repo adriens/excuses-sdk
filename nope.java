@@ -1,6 +1,6 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //REPOS mavencentral,jitpack
-//DEPS com.github.adriens:excuses-sdk:v0.11
+//DEPS com.github.adriens:excuses-sdk:v0.12
 //DEPS info.picocli:picocli:4.5.0
 import com.github.adriens.excuses.sdk.Excuses;
 import picocli.CommandLine;
